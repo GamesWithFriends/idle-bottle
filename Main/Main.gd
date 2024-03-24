@@ -1,5 +1,9 @@
 extends Control
 
+
+
+var currBottle = 330
+
 var Bottle330 = 0
 var CounterBottle330 = 0
 var InventoryBottle330 = 0
@@ -8,6 +12,8 @@ var TapWaterUppLvl = 1
 var TapWaterIdleUppLvl = 1
 var Money = GlobalVariables.money
 
+var bottleSize500 = GlobalVariables.bottleSize500
+
 
 func _ready():
 	$LabelBottle330.text = str(Bottle330)
@@ -15,6 +21,7 @@ func _ready():
 	$Money.text = "$" + str(Money)
 	$UppTapWater_lvl.text = str(TapWaterUppLvl)
 	$UppTapWaterIdle_lvl.text = str(TapWaterIdleUppLvl)
+	$StorePanel.visible = false
 
 
 func _on_tap_watter_pressed():
@@ -102,15 +109,38 @@ func _on_upp_tap_water_idle_x_10_pressed():
 		TapWaterIdleUppLvl += 10
 		$Money.text = "$" + str(Money)
 		$UppTapWaterIdle_lvl.text = str(TapWaterIdleUppLvl)
-
+		
 
 func _on_store_pressed():
-	get_tree().change_scene_to_file("res://Store/Store.tscn")
+	$StorePanel.visible = not $StorePanel.visible
 
 
-func _on_bottle_type_pressed():
-	pass # Replace with function body.
+func _on_buy_bottle_500_pressed():
+	if not GlobalVariables.bottleSize500 and Money >= 1000:
+		GlobalVariables.bottleSize500 = true
+		$SelectBottleType.add_item("500 ml", 1)
+		Money -= 1000
+		$Money.text = "$" + str(Money)
+
+func _on_buy_bottle_1000_pressed():
+	if not GlobalVariables.bottleSize1000 and Money >= 1000:
+		GlobalVariables.bottleSize1000 = true
+		$SelectBottleType.add_item("1000 ml", 2)
+		Money -= 1000
+		$Money.text = "$" + str(Money)
 
 
-func _on_button_pressed():
-	pass # Replace with function body.
+func _on_buy_bottle_1500_pressed():
+	if not GlobalVariables.bottleSize1500 and Money >= 1000:
+		GlobalVariables.bottleSize1500 = true
+		$SelectBottleType.add_item("1500 ml", 3)
+		Money -= 1000
+		$Money.text = "$" + str(Money)
+
+
+func _on_buy_bottle_2000_pressed():
+	if not GlobalVariables.bottleSize2000 and Money >= 1000:
+		GlobalVariables.bottleSize2000 = true
+		$SelectBottleType.add_item("2000 ml", 4)
+		Money -= 1000
+		$Money.text = "$" + str(Money)
