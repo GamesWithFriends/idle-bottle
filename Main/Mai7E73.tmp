@@ -215,7 +215,7 @@ offset_right = 272.0
 offset_bottom = 266.0
 text = "BuyBottle2000"
 
-[connection signal="pressed" from="SelectBottleType" to="." method="_on_select_bottle_type_pressed"]
+[connection signal="item_selected" from="SelectBottleType" to="SelectBottleType" method="_on_item_selected"]
 [connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]
