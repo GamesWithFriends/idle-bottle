@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjiih3v5v7gf7"]
+[gd_scene load_steps=2 format=3 uid="uid://cjiih3v5v7gf7"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_e43h2"]
-[ext_resource type="Script" path="res://Main/SelectBottleType.gd" id="2_nrf6r"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k155s"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -17,19 +14,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e43h2")
 
-[node name="SelectBottleType" type="OptionButton" parent="."]
+[node name="Bottle Type" type="MenuButton" parent="."]
 layout_mode = 0
-offset_left = 74.0
-offset_top = 314.0
-offset_right = 196.0
-offset_bottom = 355.0
-script = ExtResource("2_nrf6r")
+offset_left = 816.0
+offset_top = 223.0
+offset_right = 932.0
+offset_bottom = 263.0
+text = "Bottle Type"
+item_count = 5
+popup/item_0/text = "Bottle330"
+popup/item_0/id = 0
+popup/item_1/text = "Bottle500"
+popup/item_1/id = 1
+popup/item_2/text = "Bottle1000"
+popup/item_2/id = 2
+popup/item_3/text = "Bottle1500"
+popup/item_3/id = 3
+popup/item_4/text = "Bottle2000"
+popup/item_4/id = 4
 
 [node name="Store" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 0
-offset_left = 1024.0
-offset_right = 1151.0
-offset_bottom = 51.0
+offset_left = 915.0
+offset_top = 6.0
+offset_right = 964.0
+offset_bottom = 37.0
 text = "Store"
 
 [node name="Sell" type="Button" parent="."]
@@ -141,86 +151,7 @@ offset_right = 378.0
 offset_bottom = 247.0
 text = "(UppTapWaterIdle_lvl)"
 
-[node name="StorePanel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -653.0
-offset_top = 54.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Bottle500" type="Label" parent="StorePanel"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 89.0
-offset_right = 158.0
-offset_bottom = 116.0
-text = "Bottle500"
-
-[node name="Bottle1000" type="Label" parent="StorePanel"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 138.0
-offset_right = 158.0
-offset_bottom = 165.0
-text = "Bottle1000"
-
-[node name="Bottle1500" type="Label" parent="StorePanel"]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 184.0
-offset_right = 160.0
-offset_bottom = 211.0
-text = "Bottle1500"
-
-[node name="Bottle2000" type="Label" parent="StorePanel"]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 232.0
-offset_right = 161.0
-offset_bottom = 259.0
-text = "Bottle2000"
-
-[node name="BuyBottle500" type="Button" parent="StorePanel"]
-layout_mode = 0
-offset_left = 161.0
-offset_top = 80.0
-offset_right = 273.0
-offset_bottom = 123.0
-text = "BuyBottle500"
-
-[node name="BuyBottle1000" type="Button" parent="StorePanel"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 128.0
-offset_right = 272.0
-offset_bottom = 171.0
-text = "BuyBottle1000"
-
-[node name="BuyBottle1500" type="Button" parent="StorePanel"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 173.0
-offset_right = 272.0
-offset_bottom = 216.0
-text = "BuyBottle1500"
-
-[node name="BuyBottle2000" type="Button" parent="StorePanel"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 223.0
-offset_right = 272.0
-offset_bottom = 266.0
-text = "BuyBottle2000"
-
 [node name="AchievementsPanel" type="Panel" parent="."]
-modulate = Color(0.454902, 0.447059, 0.12549, 1)
-self_modulate = Color(0.615686, 0.443137, 0.239216, 1)
-material = SubResource("CanvasItemMaterial_k155s")
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -232,45 +163,16 @@ offset_right = -3.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="TotalBottle330Label" type="Label" parent="AchievementsPanel"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 14.0
-offset_right = 364.0
-offset_bottom = 37.0
-
-[node name="FirstAchievement" type="Label" parent="AchievementsPanel"]
-visible = false
-modulate = Color(1, 0.0745098, 1, 1)
-self_modulate = Color(1, 0.0745098, 1, 1)
-layout_mode = 0
-offset_left = 24.0
-offset_top = 65.0
-offset_right = 571.0
-offset_bottom = 158.0
-text = "First 10 x 330 bottles."
-
-[node name="SecondAchievement" type="Label" parent="AchievementsPanel"]
-visible = false
-modulate = Color(1, 0.0745098, 1, 1)
-self_modulate = Color(1, 0.054902, 1, 1)
-layout_mode = 0
-offset_left = 25.0
-offset_top = 167.0
-offset_right = 572.0
-offset_bottom = 260.0
-text = "First 100 x 330 bottles."
-
 [node name="AchievementsButton" type="Button" parent="."]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 0
-offset_left = 879.0
-offset_right = 1006.0
-offset_bottom = 51.0
+offset_left = 793.0
+offset_top = 6.0
+offset_right = 901.0
+offset_bottom = 37.0
 text = "Acheivements"
 
-[connection signal="pressed" from="SelectBottleType" to="." method="_on_select_bottle_type_pressed"]
-[connection signal="pressed" from="SelectBottleType" to="." method="_on_bottle_type_pressed"]
+[connection signal="pressed" from="Bottle Type" to="." method="_on_bottle_type_pressed"]
 [connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]
@@ -280,8 +182,4 @@ text = "Acheivements"
 [connection signal="pressed" from="UppTapWaterIdle" to="." method="_on_upp_tap_water_idle_pressed"]
 [connection signal="pressed" from="UppTapWaterIdleX10" to="." method="_on_upp_tap_water_idle_x_10_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="StorePanel/BuyBottle500" to="." method="_on_buy_bottle_500_pressed"]
-[connection signal="pressed" from="StorePanel/BuyBottle1000" to="." method="_on_buy_bottle_1000_pressed"]
-[connection signal="pressed" from="StorePanel/BuyBottle1500" to="." method="_on_buy_bottle_1500_pressed"]
-[connection signal="pressed" from="StorePanel/BuyBottle2000" to="." method="_on_buy_bottle_2000_pressed"]
 [connection signal="pressed" from="AchievementsButton" to="." method="_on_achievements_button_pressed"]
