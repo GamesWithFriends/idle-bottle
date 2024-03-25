@@ -107,13 +107,20 @@ offset_right = 178.0
 offset_bottom = 627.0
 text = "CounterrBottle330"
 
-[node name="LabelBottle330" type="Label" parent="."]
+[node name="InventoryBottle331" type="Label" parent="."]
+offset_left = 816.0
+offset_top = 181.0
+offset_right = 975.0
+offset_bottom = 204.0
+text = "(InventoryBottle500)"
+
+[node name="CurrentWaterInBottle" type="Label" parent="."]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 108.0
 offset_right = 291.0
 offset_bottom = 131.0
-text = "(Bottle330)"
+text = "Bottle"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -218,6 +225,7 @@ offset_bottom = 51.0
 text = "Store"
 
 [node name="AchievementsPanel" type="Panel" parent="."]
+visible = false
 modulate = Color(0.454902, 0.447059, 0.12549, 1)
 self_modulate = Color(0.615686, 0.443137, 0.239216, 1)
 material = SubResource("CanvasItemMaterial_k155s")
@@ -269,6 +277,7 @@ offset_right = 1006.0
 offset_bottom = 51.0
 text = "Achievements"
 
+[connection signal="item_selected" from="SelectBottleType" to="." method="_on_select_bottle_type_item_selected"]
 [connection signal="pressed" from="SelectBottleType" to="." method="_on_select_bottle_type_pressed"]
 [connection signal="pressed" from="SelectBottleType" to="." method="_on_bottle_type_pressed"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]

@@ -1,23 +1,36 @@
 extends Control
 
-var currBottle = 330
-var Bottle330 = 0
-var CounterBottle330 = 0
-var InventoryBottle330 = 0
-var TotalBottle330 = 0
-var TapWaterUpp = false
-var TapWaterUppLvl = 1
-var TapWaterIdleUppLvl = 1
-var Money = GlobalVariables.money
+#CurrentAmoutnOfWaterInBottle
+var currentAmountOfWaterInBottleWithSize330 = 0
+var currentAmountOfWaterInBottleWithSize500 = 0
+var currentAmountOfWaterInBottleWithSize1000 = 0
+var currentAmountOfWaterInBottleWithSize1500 = 0
+var currentAmountOfWaterInBottleWithSize2000 = 0
+
+#CurrentNumberOfSaleableBottle
+var currentNumberOfSaleableBottleWithSize330= 0
+var currentNumberOfSaleableBottleWithSize500= 0 
+var currentNumberOfSaleableBottleWithSize1000 = 0
+var currentNumberOfSaleableBottleWithSize1500 = 0
+var currentNumberOfSaleableBottleWithSize2000 = 0
+
+#TotalNumberOfBotle
+var totalNumberOfBotleWithSize330 = 0
+
+var tapWaterIdleUpgradeStatus= false
+var tapDebitLevel = 1
+var tapDebitIdleLevel = 1
+var money = GlobalVariables.money
+
+var currentBottleCapacity := 330
 
 
 func _ready():
-	$LabelBottle330.text = str(Bottle330)
-	$InventoryBottle330.text = str(InventoryBottle330)
-	$AchievementsPanel/TotalBottle330Label.text = "Total number of 330 bottles: " + str(TotalBottle330)
-	$Money.text = "$" + str(Money)
-	$UppTapWater_lvl.text = str(TapWaterUppLvl)
-	$UppTapWaterIdle_lvl.text = str(TapWaterIdleUppLvl)
+	$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize330)
+	$AchievementsPanel/TotalBottle330Label.text = "Total number of 330 bottles: " + str(totalNumberOfBotleWithSize330)
+	$Money.text = "$" + str(money)
+	$UppTapWater_lvl.text = str(tapDebitLevel)
+	$UppTapWaterIdle_lvl.text = str(tapDebitIdleLevel)
 	$StorePanel.visible = false
 	$AchievementsPanel.visible = false
 	set_process_input(true)
@@ -31,18 +44,18 @@ func _on_store_pressed():
 #Achievements panel
 func _on_achievements_button_pressed():
 	$AchievementsPanel.visible = not $AchievementsPanel.visible
-	if TotalBottle330 >= 10:
+	if totalNumberOfBotleWithSize330 >= 10:
 		$AchievementsPanel/FirstAchievement.visible = true;
-	if TotalBottle330 >= 100:
+	if totalNumberOfBotleWithSize330 >= 100:
 		$AchievementsPanel/SecondAchievement.visible = true;
 
 #Sell
 func _on_sell_pressed():
-	var SoldValue = InventoryBottle330 * 1
-	Money += SoldValue
-	InventoryBottle330 = 0
-	$InventoryBottle330.text = str(InventoryBottle330)
-	$Money.text = "$" + str(Money)
+	var SoldValue = currentNumberOfSaleableBottleWithSize330 * 1
+	money += SoldValue
+	currentNumberOfSaleableBottleWithSize330 = 0
+	$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize330)
+	$Money.text = "$" + str(money)
 	
 
 #Hide panels
@@ -62,117 +75,178 @@ func _input(event):
 
 #Tap water click
 func _on_tap_watter_pressed():
-	var water_amount = TapWaterUppLvl * 10
-	var total_water = Bottle330 + water_amount
-	if total_water >= 330:
-		var bottles_filled = int(total_water / 330)
-		var overflow = total_water % 330
-		InventoryBottle330 += bottles_filled
-		TotalBottle330 += bottles_filled
-		Bottle330 = overflow
-		$LabelBottle330.text = "0/330"
-	else:
-		Bottle330 = total_water
-	$LabelBottle330.text = str(Bottle330) + "/330"
-	$InventoryBottle330.text = str(InventoryBottle330)
-	$AchievementsPanel/TotalBottle330Label.text = "Total number of 330 bottles: " + str(TotalBottle330)
+	match currentBottleCapacity:
+		330:
+			fill_bottle_330()
+		500:
+			fill_bottle_500()
+		1000:
+			fill_bottle_500()
+		1500:
+			fill_bottle_500()
+		2000:
+			fill_bottle_500()
+
+
+
+#Select id from ButtonOption
+func _on_select_bottle_type_item_selected(index):
+	match index:
+		0:
+			currentBottleCapacity = 330
+		1:
+			currentBottleCapacity = 500	
+		3:
+			currentBottleCapacity = 1000	
+		4:
+			currentBottleCapacity = 1500	
+		5:
+			currentBottleCapacity = 2000	
+
+
+	
+func fill_bottle_330():
+	var currentWaterOnClick = tapDebitLevel * 10
+	currentAmountOfWaterInBottleWithSize330 = currentAmountOfWaterInBottleWithSize330 + currentWaterOnClick
+	if currentAmountOfWaterInBottleWithSize330 >= 330:
+		var numberOfFilledBottleWithSize330OnCurrentCycle = int(currentAmountOfWaterInBottleWithSize330 / 330)
+		var overflow = currentAmountOfWaterInBottleWithSize330 % 330
+		totalNumberOfBotleWithSize330 += numberOfFilledBottleWithSize330OnCurrentCycle
+		currentAmountOfWaterInBottleWithSize330 = overflow
+		currentNumberOfSaleableBottleWithSize330 += numberOfFilledBottleWithSize330OnCurrentCycle
+	$CurrentWaterInBottle.text = str(currentAmountOfWaterInBottleWithSize330) + "/" + str(330)
+	$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize330)
+	$AchievementsPanel/TotalBottle330Label.text = "Total number of 330 bottles: " + str(totalNumberOfBotleWithSize330)
+	
+func fill_bottle_500():
+	var currentWaterOnClick = tapDebitLevel * 10
+	currentAmountOfWaterInBottleWithSize500 = currentAmountOfWaterInBottleWithSize500 + currentWaterOnClick
+	if currentAmountOfWaterInBottleWithSize500 >= 500:
+		var numberOfFilledBottleWithSize500OnCurrentCycle = int(currentAmountOfWaterInBottleWithSize500 / 500)
+		var overflow = currentAmountOfWaterInBottleWithSize500 % 500
+		currentAmountOfWaterInBottleWithSize500 = overflow
+		currentNumberOfSaleableBottleWithSize500 += numberOfFilledBottleWithSize500OnCurrentCycle
+	$CurrentWaterInBottle.text = str(currentAmountOfWaterInBottleWithSize500) + "/" + str(500)
+	$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize500)
 
 
 #Tap water idle buy
 func _on_tap_water_idle_pressed():
-	if not TapWaterUpp and Money >= 10:
-		TapWaterUpp = true
-		Money -= 10;
-		$Money.text = "$" + str(Money)
+	if not tapWaterIdleUpgradeStatus and money >= 10:
+		tapWaterIdleUpgradeStatus = true
+		money -= 10;
+		$Money.text = "$" + str(money)
 	
+
 
 #Tap water idle
 func _on_timer_timeout():
-	if TapWaterUpp:
-		var water_amount = TapWaterIdleUppLvl * 10
-		var total_water = Bottle330 + water_amount
-		if total_water >= 330:
-			var bottles_filled = int(total_water / 330)
-			var overflow = total_water % 330
-			InventoryBottle330 += bottles_filled
-			Bottle330 = overflow
-			$LabelBottle330.text = "0/330"
-		else:
-			Bottle330 = total_water
-		$LabelBottle330.text = str(Bottle330) + "/330"
-		$InventoryBottle330.text = str(InventoryBottle330)
+	match currentBottleCapacity:
+		330:
+			fill_bottleIdle_330()
+		500:
+			fill_bottleIdle_500()
+		1000:
+			fill_bottleIdle_500()
+		1500:
+			fill_bottleIdle_500()
+		2000:
+			fill_bottleIdle_500()
+
+func fill_bottleIdle_330():
+	if tapWaterIdleUpgradeStatus:
+		var currentWaterOnIdle = tapDebitIdleLevel * 10
+		currentAmountOfWaterInBottleWithSize330 = currentAmountOfWaterInBottleWithSize330 + currentWaterOnIdle
+		if currentAmountOfWaterInBottleWithSize330 >= 330:
+			var numberOfFilledBottleWithSize330OnCurrentCycle = int(currentAmountOfWaterInBottleWithSize330 / 330)
+			var overflow = currentAmountOfWaterInBottleWithSize330 % 330
+			currentNumberOfSaleableBottleWithSize330 += numberOfFilledBottleWithSize330OnCurrentCycle
+			currentAmountOfWaterInBottleWithSize330 = overflow
+		$CurrentWaterInBottle.text = str(currentAmountOfWaterInBottleWithSize330) + "/" + str(330)
+		$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize330)
+
+func fill_bottleIdle_500():
+	if tapWaterIdleUpgradeStatus:
+		var currentWaterOnIdle = tapDebitIdleLevel * 10
+		currentAmountOfWaterInBottleWithSize500 = currentAmountOfWaterInBottleWithSize500 + currentWaterOnIdle
+		if currentAmountOfWaterInBottleWithSize500 >= 500:
+			var numberOfFilledBottleWithSize500OnCurrentCycle = int(currentAmountOfWaterInBottleWithSize500 / 500)
+			var overflow = currentAmountOfWaterInBottleWithSize500 % 500
+			currentNumberOfSaleableBottleWithSize500 += numberOfFilledBottleWithSize500OnCurrentCycle
+			currentAmountOfWaterInBottleWithSize500 = overflow
+		$CurrentWaterInBottle.text = str(currentAmountOfWaterInBottleWithSize500) + "/" + str(500)
+		$InventoryBottle330.text = str(currentNumberOfSaleableBottleWithSize500)
 	
 
 #Upp tap water
 func _on_upp_tap_water_pressed():
-	var upgrade_price = TapWaterUppLvl * 5
-	if Money >= upgrade_price:
-		Money -= upgrade_price
-		TapWaterUppLvl += 1
-		$UppTapWater_lvl.text = str(TapWaterUppLvl)
-		$Money.text = "$" + str(Money)
+	var upgrade_price = tapDebitLevel * 5
+	if money >= upgrade_price:
+		money -= upgrade_price
+		tapDebitLevel += 1
+		$UppTapWater_lvl.text = str(tapDebitLevel)
+		$Money.text = "$" + str(money)
 		
 #Upp tap water x10
 func _on_upp_tap_water_x_10_pressed():
-	var upgrade_price = TapWaterUppLvl * 5 * 10
-	if Money >= upgrade_price:
-		Money -= upgrade_price
-		TapWaterUppLvl += 10
-		$UppTapWater_lvl.text = str(TapWaterUppLvl)
-		$Money.text = "$" + str(Money)
+	var upgrade_price = tapDebitLevel * 5 * 10
+	if money >= upgrade_price:
+		money -= upgrade_price
+		tapDebitLevel += 10
+		$UppTapWater_lvl.text = str(tapDebitLevel)
+		$Money.text = "$" + str(money)
 
 #Upp idle water
 func _on_upp_tap_water_idle_pressed():
-	var upgrade_price = TapWaterIdleUppLvl * 5
-	if TapWaterUpp and Money >= upgrade_price:
-		Money -= upgrade_price
-		TapWaterIdleUppLvl += 1
-		$Money.text = "$" + str(Money)
-		$UppTapWaterIdle_lvl.text = str(TapWaterIdleUppLvl)
+	var upgrade_price = tapDebitIdleLevel * 5
+	if tapWaterIdleUpgradeStatus and money >= upgrade_price:
+		money -= upgrade_price
+		tapDebitIdleLevel += 1
+		$Money.text = "$" + str(money)
+		$UppTapWaterIdle_lvl.text = str(tapDebitIdleLevel)
 
 
-#Upp idle wat x10
+#Upp idle water x10
 func _on_upp_tap_water_idle_x_10_pressed():
-	var upgrade_price = TapWaterIdleUppLvl * 5 * 10
-	if TapWaterUpp and Money >= upgrade_price:
-		Money -= upgrade_price
-		TapWaterIdleUppLvl += 10
-		$Money.text = "$" + str(Money)
-		$UppTapWaterIdle_lvl.text = str(TapWaterIdleUppLvl)
+	var upgrade_price = tapDebitIdleLevel * 5 * 10
+	if tapWaterIdleUpgradeStatus and money >= upgrade_price:
+		money -= upgrade_price
+		tapDebitIdleLevel += 10
+		$Money.text = "$" + str(money)
+		$UppTapWaterIdle_lvl.text = str(tapDebitIdleLevel)
 
 
 #Unlock BottleSize500
 func _on_buy_bottle_500_pressed():
-	if not GlobalVariables.bottleSize500 and Money >= 1000:
+	if not GlobalVariables.bottleSize500 and money >= 1000:
 		GlobalVariables.bottleSize500 = true
 		$SelectBottleType.add_item("500 ml", 1)
-		Money -= 1000
-		$Money.text = "$" + str(Money)
+		money -= 1000
+		$Money.text = "$" + str(money)
 
 
 #Unlock BottleSize1000
 func _on_buy_bottle_1000_pressed():
-	if not GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and Money >= 1000:
+	if not GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and money >= 1000:
 		GlobalVariables.bottleSize1000 = true
 		$SelectBottleType.add_item("1000 ml", 2)
-		Money -= 1000
-		$Money.text = "$" + str(Money)
+		money -= 1000
+		$Money.text = "$" + str(money)
 
 
 #Unlock BottleSize1500
 func _on_buy_bottle_1500_pressed():
-	if not GlobalVariables.bottleSize1500 and GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and Money >= 1000:
+	if not GlobalVariables.bottleSize1500 and GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and money >= 1000:
 		GlobalVariables.bottleSize1500 = true
 		$SelectBottleType.add_item("1500 ml", 3)
-		Money -= 1000
-		$Money.text = "$" + str(Money)
+		money -= 1000
+		$Money.text = "$" + str(money)
 
 
 #Unlock BottleSize2000
 func _on_buy_bottle_2000_pressed():
-	if not GlobalVariables.bottleSize2000 and GlobalVariables.bottleSize1500 and GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and Money >= 1000:
+	if not GlobalVariables.bottleSize2000 and GlobalVariables.bottleSize1500 and GlobalVariables.bottleSize1000 and GlobalVariables.bottleSize500 and money >= 1000:
 		GlobalVariables.bottleSize2000 = true
 		$SelectBottleType.add_item("2000 ml", 4)
-		Money -= 1000
-		$Money.text = "$" + str(Money)
-
+		money -= 1000
+		$Money.text = "$" + str(money)
