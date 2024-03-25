@@ -25,13 +25,6 @@ offset_right = 196.0
 offset_bottom = 355.0
 script = ExtResource("2_nrf6r")
 
-[node name="Store" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1024.0
-offset_right = 1151.0
-offset_bottom = 51.0
-text = "Store"
-
 [node name="Sell" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1013.0
@@ -217,6 +210,13 @@ offset_right = 272.0
 offset_bottom = 266.0
 text = "BuyBottle2000"
 
+[node name="Store" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1024.0
+offset_right = 1151.0
+offset_bottom = 51.0
+text = "Store"
+
 [node name="AchievementsPanel" type="Panel" parent="."]
 modulate = Color(0.454902, 0.447059, 0.12549, 1)
 self_modulate = Color(0.615686, 0.443137, 0.239216, 1)
@@ -267,11 +267,10 @@ layout_mode = 0
 offset_left = 879.0
 offset_right = 1006.0
 offset_bottom = 51.0
-text = "Acheivements"
+text = "Achievements"
 
 [connection signal="pressed" from="SelectBottleType" to="." method="_on_select_bottle_type_pressed"]
 [connection signal="pressed" from="SelectBottleType" to="." method="_on_bottle_type_pressed"]
-[connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]
 [connection signal="pressed" from="TapWaterIdle" to="." method="_on_tap_water_idle_pressed"]
@@ -284,4 +283,5 @@ text = "Acheivements"
 [connection signal="pressed" from="StorePanel/BuyBottle1000" to="." method="_on_buy_bottle_1000_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle1500" to="." method="_on_buy_bottle_1500_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle2000" to="." method="_on_buy_bottle_2000_pressed"]
+[connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="AchievementsButton" to="." method="_on_achievements_button_pressed"]
