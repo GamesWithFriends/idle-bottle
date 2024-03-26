@@ -23,6 +23,10 @@ aseprite_executable_path="C:/aseprite/build/bin/aseprite.exe"
 
 GlobalVariables="*res://GlobalVariables.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
