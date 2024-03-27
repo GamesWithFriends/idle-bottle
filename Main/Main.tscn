@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjiih3v5v7gf7"]
+[gd_scene load_steps=3 format=3 uid="uid://cjiih3v5v7gf7"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_e43h2"]
-[ext_resource type="Script" path="res://Main/SelectBottleType.gd" id="2_nrf6r"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k155s"]
 
@@ -23,7 +22,31 @@ offset_left = 74.0
 offset_top = 314.0
 offset_right = 196.0
 offset_bottom = 355.0
-script = ExtResource("2_nrf6r")
+item_count = 1
+selected = 0
+popup/item_0/text = "330"
+popup/item_0/id = 0
+
+[node name="SelectUppgradeOptions" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 199.0
+offset_top = 313.0
+offset_right = 328.0
+offset_bottom = 355.0
+item_count = 6
+selected = 0
+popup/item_0/text = "Level Up"
+popup/item_0/id = 0
+popup/item_1/text = "Level Up x10"
+popup/item_1/id = 1
+popup/item_2/text = "Level Up x25"
+popup/item_2/id = 2
+popup/item_3/text = "Level Up x50"
+popup/item_3/id = 3
+popup/item_4/text = "Level Up x100"
+popup/item_4/id = 4
+popup/item_5/text = "Level Up x MAX"
+popup/item_5/id = 5
 
 [node name="Sell" type="Button" parent="."]
 layout_mode = 0
@@ -50,46 +73,21 @@ offset_right = 166.0
 offset_bottom = 282.0
 text = "Water Idle"
 
-[node name="UppTapWater" type="Button" parent="."]
+[node name="UppgradeTapWater" type="Button" parent="."]
 layout_mode = 0
 offset_left = 315.0
 offset_top = 148.0
 offset_right = 377.0
 offset_bottom = 179.0
-text = "Upp x1
-"
+text = "Level Up x1"
 
-[node name="UppTapWaterX10" type="Button" parent="."]
+[node name="UppgradeIdleTapWater" type="Button" parent="."]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 148.0
-offset_right = 467.0
-offset_bottom = 179.0
-text = "Upp x10"
-
-[node name="UppTapWaterX100" type="Button" parent="."]
-layout_mode = 1
-offset_left = 493.0
-offset_top = 146.0
-offset_right = 565.0
-offset_bottom = 177.0
-text = "Upp x10"
-
-[node name="UppTapWaterIdle" type="Button" parent="."]
-layout_mode = 0
-offset_left = 213.0
+offset_left = 217.0
 offset_top = 248.0
-offset_right = 276.0
+offset_right = 280.0
 offset_bottom = 279.0
-text = "Upp x1"
-
-[node name="UppTapWaterIdleX10" type="Button" parent="."]
-layout_mode = 1
-offset_left = 295.0
-offset_top = 248.0
-offset_right = 367.0
-offset_bottom = 279.0
-text = "Upp x10"
+text = "Level Up x1"
 
 [node name="Money" type="Label" parent="."]
 layout_mode = 0
@@ -99,7 +97,7 @@ offset_right = 190.0
 offset_bottom = 51.0
 text = "(Money)"
 
-[node name="InventoryBottle330" type="Label" parent="."]
+[node name="CurrentNumberOfSaleableBottleWithSize330" type="Label" parent="."]
 layout_mode = 0
 offset_left = 812.0
 offset_top = 131.0
@@ -107,7 +105,7 @@ offset_right = 971.0
 offset_bottom = 154.0
 text = "(InventoryBottle330)"
 
-[node name="InventoryBottle500" type="Label" parent="."]
+[node name="CurrentNumberOfSaleableBottleWithSize500" type="Label" parent="."]
 layout_mode = 0
 offset_left = 815.0
 offset_top = 179.0
@@ -115,7 +113,7 @@ offset_right = 974.0
 offset_bottom = 202.0
 text = "(InventoryBottle500)"
 
-[node name="InventoryBottle1000" type="Label" parent="."]
+[node name="CurrentNumberOfSaleableBottleWithSize1000" type="Label" parent="."]
 layout_mode = 0
 offset_left = 812.0
 offset_top = 228.0
@@ -123,7 +121,7 @@ offset_right = 971.0
 offset_bottom = 251.0
 text = "(InventoryBottle1000)"
 
-[node name="InventoryBottle1500" type="Label" parent="."]
+[node name="CurrentNumberOfSaleableBottleWithSize1500" type="Label" parent="."]
 layout_mode = 0
 offset_left = 810.0
 offset_top = 267.0
@@ -131,7 +129,7 @@ offset_right = 978.0
 offset_bottom = 290.0
 text = "(InventoryBottle1500)"
 
-[node name="InventoryBottle2000" type="Label" parent="."]
+[node name="CurrentNumberOfSaleableBottleWithSize2000" type="Label" parent="."]
 layout_mode = 0
 offset_left = 812.0
 offset_top = 306.0
@@ -165,6 +163,13 @@ offset_top = 217.0
 offset_right = 378.0
 offset_bottom = 247.0
 text = "(UppTapWaterIdle_lvl)"
+
+[node name="Store" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1024.0
+offset_right = 1151.0
+offset_bottom = 51.0
+text = "Store"
 
 [node name="StorePanel" type="Panel" parent="."]
 visible = false
@@ -242,12 +247,13 @@ offset_right = 272.0
 offset_bottom = 266.0
 text = "BuyBottle2000"
 
-[node name="Store" type="Button" parent="."]
+[node name="AchievementsButton" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 0
-offset_left = 1024.0
-offset_right = 1151.0
+offset_left = 879.0
+offset_right = 1006.0
 offset_bottom = 51.0
-text = "Store"
+text = "Achievements"
 
 [node name="AchievementsPanel" type="Panel" parent="."]
 visible = false
@@ -294,27 +300,17 @@ offset_right = 572.0
 offset_bottom = 260.0
 text = "First 100 x 330 bottles."
 
-[node name="AchievementsButton" type="Button" parent="."]
-custom_minimum_size = Vector2(120, 0)
-layout_mode = 0
-offset_left = 879.0
-offset_right = 1006.0
-offset_bottom = 51.0
-text = "Achievements"
-
 [connection signal="item_selected" from="SelectBottleType" to="." method="_on_select_bottle_type_item_selected"]
+[connection signal="item_selected" from="SelectUppgradeOptions" to="." method="_on_select_uppgrade_options_item_selected"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]
 [connection signal="pressed" from="TapWaterIdle" to="." method="_on_tap_water_idle_pressed"]
-[connection signal="pressed" from="UppTapWater" to="." method="_on_upp_tap_water_pressed"]
-[connection signal="pressed" from="UppTapWaterX10" to="." method="_on_upp_tap_water_x_10_pressed"]
-[connection signal="pressed" from="UppTapWaterX100" to="." method="_on_upp_tap_water_x_100_pressed"]
-[connection signal="pressed" from="UppTapWaterIdle" to="." method="_on_upp_tap_water_idle_pressed"]
-[connection signal="pressed" from="UppTapWaterIdleX10" to="." method="_on_upp_tap_water_idle_x_10_pressed"]
+[connection signal="pressed" from="UppgradeTapWater" to="." method="_on_upp_tap_water_pressed"]
+[connection signal="pressed" from="UppgradeIdleTapWater" to="." method="_on_upp_tap_water_idle_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle500" to="." method="_on_buy_bottle_500_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle1000" to="." method="_on_buy_bottle_1000_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle1500" to="." method="_on_buy_bottle_1500_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle2000" to="." method="_on_buy_bottle_2000_pressed"]
-[connection signal="pressed" from="Store" to="." method="_on_store_pressed"]
 [connection signal="pressed" from="AchievementsButton" to="." method="_on_achievements_button_pressed"]
