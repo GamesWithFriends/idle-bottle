@@ -1,5 +1,8 @@
 extends Control
 
+
+var costPerLevel = 5
+
 #CurrentAmoutnOfWaterInBottle
 var currentAmountOfWaterInBottleWithSize330 = 0
 var currentAmountOfWaterInBottleWithSize500 = 0
@@ -23,6 +26,8 @@ var tapDebitIdleLevel = 1
 var money = GlobalVariables.money
 
 var amountOfUpgradeOnClick = 1
+var amountOfUpgradeOnIdleClick = 1
+
 var currentBottleCapacity = 330
 
 
@@ -40,7 +45,13 @@ func _ready():
 	$AchievementsPanel.visible = false
 	set_process_input(true)
 
-
+func _process(delta):
+	if($SelectUppgradeOptions.selected == 5):
+		amountOfUpgradeOnClick = calculateMaxUpgrades(tapDebitLevel)
+		amountOfUpgradeOnIdleClick = calculateMaxUpgrades(tapDebitIdleLevel)
+		$UppgradeTapWater.text = "Level Up x" + str(amountOfUpgradeOnClick)
+		$UppgradeIdleTapWater.text = "Level Up x" + str(amountOfUpgradeOnIdleClick)
+	
 #Store panel
 func _on_store_pressed():
 	$StorePanel.visible = not $StorePanel.visible
@@ -318,47 +329,46 @@ func _on_buy_bottle_2000_pressed():
 		$Money.text = "$" + str(money)
 
 
-#Maxim of uppgrade possible
-#func calculateMaxUpgrades(availableMoney, costPerUpgrade):
-	#var maxUpgrades = 0
-	#var totalCost = 0
-	#var i = 1
-#
-	## Calculează câte upgrade-uri poți face cu suma de bani disponibilă
-	#while totalCost + costPerUpgrade * i <= availableMoney:
-		#totalCost += costPerUpgrade * i
-		#maxUpgrades += 1
-		#i += 1
-	#return maxUpgrades
-
+#Maxim of upgrade possible
+func calculateMaxUpgrades(actualTapDebitLevel):
+	#Suma totala a costurilor pentru upgradeuri
+	var sumOfCosts = actualTapDebitLevel * costPerLevel
+	#Numarul de upgrade-uri disponibile in functie de bani
+	var maxUpgrades = 0
+	#Verific daca suma costurilor este <= decat banii totali
+	while sumOfCosts <= money:
+		maxUpgrades = maxUpgrades+1;
+		sumOfCosts = sumOfCosts + (actualTapDebitLevel+maxUpgrades) * costPerLevel
+	return maxUpgrades;
+	
 #Select Uppgrade amount for click water
 func _on_select_uppgrade_options_item_selected(index):
 	match index:
 		0:
 			amountOfUpgradeOnClick = 1
+			amountOfUpgradeOnIdleClick = 1
 			$UppgradeTapWater.text = "Level Up x1"
 			$UppgradeIdleTapWater.text = "Level Up x1"
 		1:
 			amountOfUpgradeOnClick = 10	
+			amountOfUpgradeOnIdleClick = 10
 			$UppgradeTapWater.text = "Level Up x10"
 			$UppgradeIdleTapWater.text = "Level Up x10"
 		2:
 			amountOfUpgradeOnClick = 25	
+			amountOfUpgradeOnIdleClick = 25
 			$UppgradeTapWater.text = "Level Up x25"
 			$UppgradeIdleTapWater.text = "Level Up x25"
 		3:
 			amountOfUpgradeOnClick = 50	
+			amountOfUpgradeOnIdleClick = 50
 			$UppgradeTapWater.text = "Level Up x50"
 			$UppgradeIdleTapWater.text = "Level Up x50"
 		4:
 			amountOfUpgradeOnClick = 100	
+			amountOfUpgradeOnIdleClick = 100
 			$UppgradeTapWater.text = "Level Up x100"
 			$UppgradeIdleTapWater.text = "Level Up x100"
-		#5:
-			#amountOfUpgradeOnClick = calculateMaxUpgrades(money, 5)
-			#$UppgradeTapWater.text = "Level Up x" + str(amountOfUpgradeOnClick)
-			#$UppgradeIdleTapWater.text = "Level Up x" + str(amountOfUpgradeOnClick)
-			
 
 #Uppgrade tap water
 func _on_upp_tap_water_pressed():
@@ -370,7 +380,8 @@ func upgradeTapWaterByLevel(numberOfLevels):
 	var amountOfLevelOnClick = numberOfLevels
 	var upgrade_price = 0
 	for i in range(tapDebitLevel, tapDebitLevel + amountOfLevelOnClick):
-		upgrade_price += i * 5
+		# where costPerLevel represent the price of each level and i is the actual level of the debit
+		upgrade_price += i * costPerLevel
 	if money >= upgrade_price:
 		money -= upgrade_price
 		tapDebitLevel += amountOfLevelOnClick
@@ -380,7 +391,7 @@ func upgradeTapWaterByLevel(numberOfLevels):
 
 #Uppgrade idle tap water
 func _on_upp_tap_water_idle_pressed():
-	upgradeIdleTapWaterByLevel(amountOfUpgradeOnClick)
+	upgradeIdleTapWaterByLevel(amountOfUpgradeOnIdleClick)
 	
 
 #Uppgrade idle tap water by X levels
@@ -388,7 +399,7 @@ func upgradeIdleTapWaterByLevel(numberOfLevels):
 	var amountOfLevelOnClick = numberOfLevels
 	var upgrade_price = 0
 	for i in range(tapDebitIdleLevel, tapDebitIdleLevel + amountOfLevelOnClick):
-		upgrade_price += i * 5
+		upgrade_price += i * costPerLevel
 	if tapWaterIdleUpgradeStatus and money >= upgrade_price:
 		money -= upgrade_price
 		tapDebitIdleLevel += amountOfLevelOnClick
