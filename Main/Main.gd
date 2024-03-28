@@ -79,8 +79,15 @@ func hide_panel_on_click_outside(panel):
 	if panel.visible:
 		var mouse_position = get_viewport().get_mouse_position()
 		var panel_global_rect = panel.get_global_rect()
-		if not panel_global_rect.has_point(mouse_position):
+		var achievement_button_rect = $AchievementsButton.get_global_rect()
+		var store_button_rect = $StorePanel.get_global_rect()
+		if not panel_global_rect.has_point(mouse_position) && not $AchievementsButton.get_global_rect().has_point(mouse_position) && not $Store.get_global_rect().has_point(mouse_position):
 			panel.visible = false
+		elif $AchievementsButton.get_global_rect().has_point(mouse_position) && $StorePanel.visible:
+			$StorePanel.visible = false
+		elif $Store.get_global_rect().has_point(mouse_position) && $AchievementsPanel.visible:
+			$AchievementsPanel.visible = false
+
 
 
 func _input(event):
