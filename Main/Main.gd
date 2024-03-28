@@ -46,6 +46,9 @@ func _ready():
 	set_process_input(true)
 
 func _process(delta):
+	if 	tapWaterIdleUpgradeStatus:
+		$FillBottleSprite/FillBottleAnimation.play("FillingBottle")
+		$FlowingWaterSprite/FlowingWaterAnimation.play("FlowingWater")
 	if($SelectUppgradeOptions.selected == 5):
 		amountOfUpgradeOnClick = calculateMaxUpgrades(tapDebitLevel)
 		amountOfUpgradeOnIdleClick = calculateMaxUpgrades(tapDebitIdleLevel)
@@ -79,8 +82,6 @@ func hide_panel_on_click_outside(panel):
 	if panel.visible:
 		var mouse_position = get_viewport().get_mouse_position()
 		var panel_global_rect = panel.get_global_rect()
-		var achievement_button_rect = $AchievementsButton.get_global_rect()
-		var store_button_rect = $StorePanel.get_global_rect()
 		if not panel_global_rect.has_point(mouse_position) && not $AchievementsButton.get_global_rect().has_point(mouse_position) && not $Store.get_global_rect().has_point(mouse_position):
 			panel.visible = false
 		elif $AchievementsButton.get_global_rect().has_point(mouse_position) && $StorePanel.visible:
@@ -200,11 +201,13 @@ func fill_bottle_2000():
 
 #Tap water idle buy
 func _on_tap_water_idle_pressed():
+	$UnlockIdleSprite/UnlockIdleAnimation.play("UnlockIdle")
+	await $UnlockIdleSprite/UnlockIdleAnimation.animation_finished
 	if not tapWaterIdleUpgradeStatus and money >= 10:
+		$TapWaterIdle.visible = false
 		tapWaterIdleUpgradeStatus = true
 		money -= 10
 		$Money.text = "$" + str(money)
-	
 
 
 #Tap water idle
@@ -412,4 +415,3 @@ func upgradeIdleTapWaterByLevel(numberOfLevels):
 		tapDebitIdleLevel += amountOfLevelOnClick
 		$Money.text = "$" + str(money)
 		$UppTapWaterIdle_lvl.text = str(tapDebitIdleLevel)
-	

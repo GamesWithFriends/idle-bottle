@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjiih3v5v7gf7"]
+[gd_scene load_steps=12 format=3 uid="uid://cjiih3v5v7gf7"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_e43h2"]
-[ext_resource type="Texture2D" uid="uid://dgp362nkuikto" path="res://Animations/Water_animation.png" id="3_6u08w"]
+[ext_resource type="Texture2D" uid="uid://dxxq70rvvfd1q" path="res://TapWaterIdleUnlockAnimation.png" id="2_3fasb"]
 [ext_resource type="Texture2D" uid="uid://dfelck28iu8rl" path="res://Animations/background.png" id="3_b457c"]
-[ext_resource type="Texture2D" uid="uid://dv57104vuuih7" path="res://Animations/TapWaterIdleUnlockAnimation.png" id="3_wb540"]
-[ext_resource type="Texture2D" uid="uid://i2vx0i6hrhlc" path="res://Animations/Water_bottle_animation.png" id="4_qrhm5"]
-[ext_resource type="Texture2D" uid="uid://cqlgvp6io82bi" path="res://Animations/TapIdleButtonTexture.aseprite" id="5_hrb6r"]
+[ext_resource type="Texture2D" uid="uid://b4tt4t34y7yw5" path="res://Main/icon.svg" id="4_7h62r"]
+[ext_resource type="Texture2D" uid="uid://ds8tvi3c604tn" path="res://Animations/Water_animation.png" id="4_cagej"]
 
 [sub_resource type="Animation" id="Animation_7qi16"]
 resource_name = "UnlockIdleAnimation"
@@ -23,30 +22,14 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_k6koo"]
-resource_name = "asdas"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iyycl"]
 _data = {
-"UnlockIdle": SubResource("Animation_7qi16"),
-"asdas": SubResource("Animation_k6koo")
+"UnlockIdle": SubResource("Animation_7qi16")
 }
 
 [sub_resource type="Animation" id="Animation_lj238"]
 resource_name = "FlowingWater"
-length = 0.9
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -55,10 +38,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_am8bw"]
@@ -66,27 +49,7 @@ _data = {
 "FlowingWater": SubResource("Animation_lj238")
 }
 
-[sub_resource type="Animation" id="Animation_xj4uk"]
-resource_name = "FillingBottle"
-length = 1.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5wy"]
-_data = {
-"FillingBottle": SubResource("Animation_xj4uk")
-}
+[sub_resource type="BitMap" id="BitMap_nbtrs"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k155s"]
 
@@ -111,14 +74,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("3_b457c")
 
 [node name="UnlockIdleSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(229, 206)
 scale = Vector2(7.40476, 6.7931)
-texture = ExtResource("3_wb540")
+texture = ExtResource("2_3fasb")
 hframes = 4
 vframes = 4
 
@@ -127,30 +89,17 @@ libraries = {
 "": SubResource("AnimationLibrary_iyycl")
 }
 
-[node name="FlowingWaterSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(285, 310)
-scale = Vector2(0.861245, 1.51867)
-texture = ExtResource("3_6u08w")
-hframes = 3
-vframes = 3
+[node name="WaterAnimation" type="Sprite2D" parent="."]
+position = Vector2(286, 224)
+scale = Vector2(7.56249, 1.83468)
+texture = ExtResource("4_cagej")
+hframes = 2
+vframes = 2
+frame = 1
 
-[node name="FlowingWaterAnimation" type="AnimationPlayer" parent="FlowingWaterSprite"]
+[node name="FlowingWater" type="AnimationPlayer" parent="WaterAnimation"]
 libraries = {
 "": SubResource("AnimationLibrary_am8bw")
-}
-
-[node name="FillBottleSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(284, 329)
-scale = Vector2(7.08333, 6.63333)
-texture = ExtResource("4_qrhm5")
-hframes = 4
-vframes = 4
-
-[node name="FillBottleAnimation" type="AnimationPlayer" parent="FillBottleSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_sp5wy")
 }
 
 [node name="SelectBottleType" type="OptionButton" parent="."]
@@ -163,6 +112,19 @@ item_count = 1
 selected = 0
 popup/item_0/text = "330"
 popup/item_0/id = 0
+
+[node name="UnlockIdleTapWater" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 634.0
+offset_top = 463.0
+offset_right = 762.0
+offset_bottom = 591.0
+action_mode = 0
+button_mask = 0
+texture_normal = ExtResource("4_7h62r")
+texture_pressed = ExtResource("4_7h62r")
+texture_click_mask = SubResource("BitMap_nbtrs")
 
 [node name="SelectUppgradeOptions" type="OptionButton" parent="."]
 layout_mode = 0
@@ -204,12 +166,10 @@ text = "Water"
 
 [node name="TapWaterIdle" type="Button" parent="."]
 layout_mode = 0
-offset_left = 596.0
-offset_top = 542.0
-offset_right = 684.0
-offset_bottom = 630.0
-icon = ExtResource("5_hrb6r")
-flat = true
+offset_left = 600.0
+offset_top = 334.0
+offset_right = 658.0
+offset_bottom = 392.0
 
 [node name="UppgradeTapWater" type="Button" parent="."]
 layout_mode = 0
@@ -439,6 +399,7 @@ offset_bottom = 260.0
 text = "First 100 x 330 bottles."
 
 [connection signal="item_selected" from="SelectBottleType" to="." method="_on_select_bottle_type_item_selected"]
+[connection signal="pressed" from="UnlockIdleTapWater" to="." method="_on_texture_button_pressed"]
 [connection signal="item_selected" from="SelectUppgradeOptions" to="." method="_on_select_uppgrade_options_item_selected"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]

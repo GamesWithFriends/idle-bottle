@@ -1,164 +1,58 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjiih3v5v7gf7"]
+[gd_scene load_steps=8 format=3 uid="uid://cjiih3v5v7gf7"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_e43h2"]
-[ext_resource type="Texture2D" uid="uid://dgp362nkuikto" path="res://Animations/Water_animation.png" id="3_6u08w"]
-[ext_resource type="Texture2D" uid="uid://dfelck28iu8rl" path="res://Animations/background.png" id="3_b457c"]
-[ext_resource type="Texture2D" uid="uid://dv57104vuuih7" path="res://Animations/TapWaterIdleUnlockAnimation.png" id="3_wb540"]
-[ext_resource type="Texture2D" uid="uid://i2vx0i6hrhlc" path="res://Animations/Water_bottle_animation.png" id="4_qrhm5"]
-[ext_resource type="Texture2D" uid="uid://cqlgvp6io82bi" path="res://Animations/TapIdleButtonTexture.aseprite" id="5_hrb6r"]
-
-[sub_resource type="Animation" id="Animation_7qi16"]
-resource_name = "UnlockIdleAnimation"
-length = 3.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3, 3.3, 3.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
-
-[sub_resource type="Animation" id="Animation_k6koo"]
-resource_name = "asdas"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyycl"]
-_data = {
-"UnlockIdle": SubResource("Animation_7qi16"),
-"asdas": SubResource("Animation_k6koo")
-}
-
-[sub_resource type="Animation" id="Animation_lj238"]
-resource_name = "FlowingWater"
-length = 0.9
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_am8bw"]
-_data = {
-"FlowingWater": SubResource("Animation_lj238")
-}
-
-[sub_resource type="Animation" id="Animation_xj4uk"]
-resource_name = "FillingBottle"
-length = 1.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5wy"]
-_data = {
-"FillingBottle": SubResource("Animation_xj4uk")
-}
+[ext_resource type="Texture2D" uid="uid://hxavu6fwsa6m" path="res://background.png" id="2_wqxnp"]
+[ext_resource type="Texture2D" uid="uid://5bbl0wkw71e" path="res://TapIdleButtonTexture.aseprite" id="3_2otxm"]
+[ext_resource type="Texture2D" uid="uid://q36hjd2e0mrn" path="res://Water_bottle_animation.png" id="3_wlseq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k155s"]
+
+[sub_resource type="Animation" id="Animation_x3ob1"]
+resource_name = "FillBottle"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3wov"]
+_data = {
+"FillBottle": SubResource("Animation_x3ob1")
+}
 
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 4.0
-offset_bottom = 2.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e43h2")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_b457c")
-
-[node name="UnlockIdleSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(229, 206)
-scale = Vector2(7.40476, 6.7931)
-texture = ExtResource("3_wb540")
-hframes = 4
-vframes = 4
-
-[node name="UnlockIdleAnimation" type="AnimationPlayer" parent="UnlockIdleSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_iyycl")
-}
-
-[node name="FlowingWaterSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(285, 310)
-scale = Vector2(0.861245, 1.51867)
-texture = ExtResource("3_6u08w")
-hframes = 3
-vframes = 3
-
-[node name="FlowingWaterAnimation" type="AnimationPlayer" parent="FlowingWaterSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_am8bw")
-}
-
-[node name="FillBottleSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(284, 329)
-scale = Vector2(7.08333, 6.63333)
-texture = ExtResource("4_qrhm5")
-hframes = 4
-vframes = 4
-
-[node name="FillBottleAnimation" type="AnimationPlayer" parent="FillBottleSprite"]
-libraries = {
-"": SubResource("AnimationLibrary_sp5wy")
-}
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(222, 205)
+scale = Vector2(3.11875, 3.78125)
+texture = ExtResource("2_wqxnp")
+centered = false
 
 [node name="SelectBottleType" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 674.0
-offset_top = 343.0
-offset_right = 796.0
-offset_bottom = 384.0
+offset_left = 75.0
+offset_top = 352.0
+offset_right = 197.0
+offset_bottom = 393.0
 item_count = 1
 selected = 0
 popup/item_0/text = "330"
@@ -166,10 +60,10 @@ popup/item_0/id = 0
 
 [node name="SelectUppgradeOptions" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 812.0
-offset_top = 342.0
-offset_right = 976.0
-offset_bottom = 384.0
+offset_left = 211.0
+offset_top = 348.0
+offset_right = 375.0
+offset_bottom = 390.0
 item_count = 6
 selected = 0
 popup/item_0/text = "Level Up"
@@ -196,43 +90,42 @@ text = "Sell
 
 [node name="TapWatter" type="Button" parent="."]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 108.0
-offset_right = 664.0
-offset_bottom = 139.0
+offset_left = 325.0
+offset_top = 137.0
+offset_right = 399.0
+offset_bottom = 168.0
 text = "Water"
 
 [node name="TapWaterIdle" type="Button" parent="."]
 layout_mode = 0
-offset_left = 596.0
-offset_top = 542.0
-offset_right = 684.0
-offset_bottom = 630.0
-icon = ExtResource("5_hrb6r")
-flat = true
+offset_left = 85.0
+offset_top = 266.0
+offset_right = 143.0
+offset_bottom = 324.0
+icon = ExtResource("3_2otxm")
 
 [node name="UppgradeTapWater" type="Button" parent="."]
 layout_mode = 0
-offset_left = 706.0
-offset_top = 105.0
-offset_right = 803.0
-offset_bottom = 136.0
+offset_left = 465.0
+offset_top = 136.0
+offset_right = 562.0
+offset_bottom = 167.0
 text = "Level Up x1"
 
 [node name="UppgradeIdleTapWater" type="Button" parent="."]
 layout_mode = 0
-offset_left = 589.0
-offset_top = 221.0
-offset_right = 686.0
-offset_bottom = 252.0
+offset_left = 207.0
+offset_top = 289.0
+offset_right = 304.0
+offset_bottom = 320.0
 text = "Level Up x1"
 
 [node name="Money" type="Label" parent="."]
 layout_mode = 0
-offset_left = 584.0
-offset_top = 5.0
-offset_right = 703.0
-offset_bottom = 42.0
+offset_left = 71.0
+offset_top = 14.0
+offset_right = 190.0
+offset_bottom = 51.0
 text = "(Money)"
 
 [node name="CurrentNumberOfSaleableBottleWithSize330" type="Label" parent="."]
@@ -277,10 +170,10 @@ text = "(InventoryBottle2000)"
 
 [node name="CurrentWaterInBottle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 589.0
-offset_top = 72.0
-offset_right = 674.0
-offset_bottom = 95.0
+offset_left = 327.0
+offset_top = 104.0
+offset_right = 412.0
+offset_bottom = 127.0
 text = "Bottle"
 
 [node name="Timer" type="Timer" parent="."]
@@ -288,25 +181,25 @@ autostart = true
 
 [node name="UppTapWater_lvl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 709.0
-offset_top = 69.0
-offset_right = 851.0
-offset_bottom = 92.0
+offset_left = 457.0
+offset_top = 103.0
+offset_right = 599.0
+offset_bottom = 126.0
 text = "(UppTapWater_lvl)"
 
 [node name="UppTapWaterIdle_lvl" type="Label" parent="."]
 layout_mode = 0
-offset_left = 587.0
-offset_top = 173.0
-offset_right = 758.0
-offset_bottom = 203.0
+offset_left = 208.0
+offset_top = 235.0
+offset_right = 379.0
+offset_bottom = 265.0
 text = "(UppTapWaterIdle_lvl)"
 
 [node name="Store" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1024.0
 offset_right = 1151.0
-offset_bottom = 51.0
+offset_bottom = 41.0
 text = "Store"
 
 [node name="StorePanel" type="Panel" parent="."]
@@ -389,8 +282,8 @@ text = "BuyBottle2000"
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 0
 offset_left = 879.0
-offset_right = 1006.0
-offset_bottom = 51.0
+offset_right = 1022.0
+offset_bottom = 40.0
 text = "Achievements"
 
 [node name="AchievementsPanel" type="Panel" parent="."]
@@ -438,6 +331,48 @@ offset_right = 572.0
 offset_bottom = 260.0
 text = "First 100 x 330 bottles."
 
+[node name="InventoryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = -1.0
+offset_right = 876.0
+offset_bottom = 39.0
+text = "Inventory"
+
+[node name="Inventory" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -586.0
+offset_top = 45.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SellEverything" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 12.0
+offset_right = 232.0
+offset_bottom = 44.0
+text = "Sell"
+
+[node name="FillBottleNode" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(431, 390)
+scale = Vector2(3.65476, 3.74167)
+texture = ExtResource("3_wlseq")
+hframes = 3
+vframes = 2
+frame = 5
+
+[node name="FillBottleAnimation" type="AnimationPlayer" parent="FillBottleNode"]
+libraries = {
+"": SubResource("AnimationLibrary_m3wov")
+}
+
 [connection signal="item_selected" from="SelectBottleType" to="." method="_on_select_bottle_type_item_selected"]
 [connection signal="item_selected" from="SelectUppgradeOptions" to="." method="_on_select_uppgrade_options_item_selected"]
 [connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
@@ -452,3 +387,5 @@ text = "First 100 x 330 bottles."
 [connection signal="pressed" from="StorePanel/BuyBottle1500" to="." method="_on_buy_bottle_1500_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle2000" to="." method="_on_buy_bottle_2000_pressed"]
 [connection signal="pressed" from="AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="SellEverything" to="." method="_on_sell_everything_pressed"]
