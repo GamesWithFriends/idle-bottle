@@ -2,13 +2,13 @@
 
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
-uid="uid://b2bnam01p5ly3"
-path="res://.godot/imported/Water_bottle_animation.aseprite-d4928ed1e8ebd06e0ba869c639fb0443.scn"
+uid="uid://dxxq70rvvfd1q"
+path="res://.godot/imported/TapWaterIdleUnlockAnimation.aseprite-ea108146be1f602b30c2184c6021a902.scn"
 
 [deps]
 
-source_file="res://Water_bottle_animation.aseprite"
-dest_files=["res://.godot/imported/Water_bottle_animation.aseprite-d4928ed1e8ebd06e0ba869c639fb0443.scn"]
+source_file="res://Animations/TapWaterIdleUnlockAnimation.aseprite"
+dest_files=["res://.godot/imported/TapWaterIdleUnlockAnimation.aseprite-ea108146be1f602b30c2184c6021a902.scn"]
 
 [params]
 

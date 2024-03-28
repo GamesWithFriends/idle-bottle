@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q36hjd2e0mrn"
-path="res://.godot/imported/Water_bottle_animation.png-c4c00202c1df1fbb5f7bf7425fc2d6c5.ctex"
+uid="uid://cqlgvp6io82bi"
+path="res://.godot/imported/TapIdleButtonTexture.aseprite-203604290a43cbba120fde44398f3583.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Water_bottle_animation.png"
-dest_files=["res://.godot/imported/Water_bottle_animation.png-c4c00202c1df1fbb5f7bf7425fc2d6c5.ctex"]
+source_file="res://Animations/TapIdleButtonTexture.aseprite"
+dest_files=["res://.godot/imported/TapIdleButtonTexture.aseprite-203604290a43cbba120fde44398f3583.ctex"]
 
 [params]
 
