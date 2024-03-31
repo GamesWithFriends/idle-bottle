@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i2vx0i6hrhlc"
-path="res://.godot/imported/Water_bottle_animation.png-e89d76f3629708eb4d4def4d4d59ec0a.ctex"
+uid="uid://bx3mkyumx83ab"
+path="res://.godot/imported/MoneyBackGround.png-2951963cafd97e75e341192110f1f683.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/Water_bottle_animation.png"
-dest_files=["res://.godot/imported/Water_bottle_animation.png-e89d76f3629708eb4d4def4d4d59ec0a.ctex"]
+source_file="res://Animations/ToiletPaperAnimation/MoneyBackGround.png"
+dest_files=["res://.godot/imported/MoneyBackGround.png-2951963cafd97e75e341192110f1f683.ctex"]
 
 [params]
 

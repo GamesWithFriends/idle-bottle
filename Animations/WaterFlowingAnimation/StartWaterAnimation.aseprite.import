@@ -2,17 +2,17 @@
 
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
-uid="uid://dwe5x0ch5afqv"
-path="res://.godot/imported/Water_bottle_animation.aseprite-9323ff2600a51bd86b0ff2892b08ac56.scn"
+uid="uid://c44isiwxgbmjt"
+path="res://.godot/imported/StartWaterAnimation.aseprite-fe27b6d0be400a360c74010d1f716f32.scn"
 
 [deps]
 
-source_file="res://Animations/Water_bottle_animation.aseprite"
-dest_files=["res://.godot/imported/Water_bottle_animation.aseprite-9323ff2600a51bd86b0ff2892b08ac56.scn"]
+source_file="res://Animations/WaterFlowingAnimation/StartWaterAnimation.aseprite"
+dest_files=["res://.godot/imported/StartWaterAnimation.aseprite-fe27b6d0be400a360c74010d1f716f32.scn"]
 
 [params]
 
-spritesheet/layout=0
+spritesheet/layout=1
 spritesheet/fixed_rows_count=1
 spritesheet/fixed_columns_count=1
 spritesheet/border_type=0

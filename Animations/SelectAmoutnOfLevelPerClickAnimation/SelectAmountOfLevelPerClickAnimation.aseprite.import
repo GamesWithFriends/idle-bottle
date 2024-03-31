@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://5r3pyq7nkmh4"
+path="res://.godot/imported/SelectAmountOfLevelPerClickAnimation.aseprite-f0433eb669f5d2480a016d618e6e0ceb.scn"
+
+[deps]
+
+source_file="res://Animations/SelectAmoutnOfLevelPerClickAnimation/SelectAmountOfLevelPerClickAnimation.aseprite"
+dest_files=["res://.godot/imported/SelectAmountOfLevelPerClickAnimation.aseprite-f0433eb669f5d2480a016d618e6e0ceb.scn"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

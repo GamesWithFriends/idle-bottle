@@ -2,17 +2,17 @@
 
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
-uid="uid://dxxq70rvvfd1q"
-path="res://.godot/imported/TapWaterIdleUnlockAnimation.aseprite-ea108146be1f602b30c2184c6021a902.scn"
+uid="uid://jpxx6oxlpvh6"
+path="res://.godot/imported/OpenInventoryPanelAnimation.aseprite-cba607a6c91c995fc9ac7dabedd08857.scn"
 
 [deps]
 
-source_file="res://Animations/TapWaterIdleUnlockAnimation.aseprite"
-dest_files=["res://.godot/imported/TapWaterIdleUnlockAnimation.aseprite-ea108146be1f602b30c2184c6021a902.scn"]
+source_file="res://Animations/InventoryOpenAnimation/OpenInventoryPanelAnimation.aseprite"
+dest_files=["res://.godot/imported/OpenInventoryPanelAnimation.aseprite-cba607a6c91c995fc9ac7dabedd08857.scn"]
 
 [params]
 
-spritesheet/layout=0
+spritesheet/layout=1
 spritesheet/fixed_rows_count=1
 spritesheet/fixed_columns_count=1
 spritesheet/border_type=0

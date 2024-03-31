@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv57104vuuih7"
-path="res://.godot/imported/TapWaterIdleUnlockAnimation.png-c1fd3f1ed054783094c9c65ee43de35c.ctex"
+uid="uid://deyg03j3oj03g"
+path="res://.godot/imported/InventoryPanelBackground.png-601fde2768c2d513ec4005710c231fd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/TapWaterIdleUnlockAnimation.png"
-dest_files=["res://.godot/imported/TapWaterIdleUnlockAnimation.png-c1fd3f1ed054783094c9c65ee43de35c.ctex"]
+source_file="res://Animations/BackGround/InventoryPanelBackground.png"
+dest_files=["res://.godot/imported/InventoryPanelBackground.png-601fde2768c2d513ec4005710c231fd1.ctex"]
 
 [params]
 

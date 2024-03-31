@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqlgvp6io82bi"
-path="res://.godot/imported/TapIdleButtonTexture.aseprite-203604290a43cbba120fde44398f3583.ctex"
+uid="uid://c57jrciyh6gmp"
+path="res://.godot/imported/StartWaterAnimation.png-20c8f9351cdee2341ee4e631cd3199d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/TapIdleButtonTexture.aseprite"
-dest_files=["res://.godot/imported/TapIdleButtonTexture.aseprite-203604290a43cbba120fde44398f3583.ctex"]
+source_file="res://Animations/WaterFlowingAnimation/StartWaterAnimation.png"
+dest_files=["res://.godot/imported/StartWaterAnimation.png-20c8f9351cdee2341ee4e631cd3199d4.ctex"]
 
 [params]
 
