@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfelck28iu8rl"
-path="res://.godot/imported/background.png-a27e293a6e37f2a22a31bc4bb204f357.ctex"
+uid="uid://cu3knmshupx0o"
+path="res://.godot/imported/SelectAmountOfLevelPerClickAnimation.png-15f63ac5a8bc071f9cc0266c6548f73d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Animations/background.png"
-dest_files=["res://.godot/imported/background.png-a27e293a6e37f2a22a31bc4bb204f357.ctex"]
+source_file="res://Animations/SelectAmoutnOfLevelPerClickAnimation/SelectAmountOfLevelPerClickAnimation.png"
+dest_files=["res://.godot/imported/SelectAmountOfLevelPerClickAnimation.png-15f63ac5a8bc071f9cc0266c6548f73d.ctex"]
 
 [params]
 

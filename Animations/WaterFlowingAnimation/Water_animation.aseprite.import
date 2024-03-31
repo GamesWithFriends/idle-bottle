@@ -3,12 +3,12 @@
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
 uid="uid://6fmbyb2t8x0y"
-path="res://.godot/imported/Water_animation.aseprite-c08f8a495cf4bcf10ca32bf9c50565aa.scn"
+path="res://.godot/imported/Water_animation.aseprite-7cf77ba39caddc2af86c9b1be8c369bc.scn"
 
 [deps]
 
-source_file="res://Animations/Water_animation.aseprite"
-dest_files=["res://.godot/imported/Water_animation.aseprite-c08f8a495cf4bcf10ca32bf9c50565aa.scn"]
+source_file="res://Animations/WaterFlowingAnimation/Water_animation.aseprite"
+dest_files=["res://.godot/imported/Water_animation.aseprite-7cf77ba39caddc2af86c9b1be8c369bc.scn"]
 
 [params]
 

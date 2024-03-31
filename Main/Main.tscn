@@ -1,11 +1,101 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjiih3v5v7gf7"]
+[gd_scene load_steps=55 format=3 uid="uid://cjiih3v5v7gf7"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1_e43h2"]
-[ext_resource type="Texture2D" uid="uid://dgp362nkuikto" path="res://Animations/Water_animation.png" id="3_6u08w"]
-[ext_resource type="Texture2D" uid="uid://dfelck28iu8rl" path="res://Animations/background.png" id="3_b457c"]
-[ext_resource type="Texture2D" uid="uid://dv57104vuuih7" path="res://Animations/TapWaterIdleUnlockAnimation.png" id="3_wb540"]
-[ext_resource type="Texture2D" uid="uid://i2vx0i6hrhlc" path="res://Animations/Water_bottle_animation.png" id="4_qrhm5"]
-[ext_resource type="Texture2D" uid="uid://cqlgvp6io82bi" path="res://Animations/TapIdleButtonTexture.aseprite" id="5_hrb6r"]
+[ext_resource type="Texture2D" uid="uid://dgp362nkuikto" path="res://Animations/WaterFlowingAnimation/Water_animation.png" id="3_6u08w"]
+[ext_resource type="Texture2D" uid="uid://12xhd7otw11l" path="res://Animations/BackGround/background.png" id="3_b457c"]
+[ext_resource type="Texture2D" uid="uid://d2vk0p0gjg6sh" path="res://Animations/ToiletPaperAnimation/ToiletPaperAnimation.png" id="3_bht3i"]
+[ext_resource type="Texture2D" uid="uid://bgldg8delt1on" path="res://Animations/UnlockIdleAnimation/TapWaterIdleUnlockAnimation.png" id="3_g08i1"]
+[ext_resource type="Texture2D" uid="uid://bka84vrsvyyk6" path="res://Animations/BackGround/MoneyBackGround.png" id="3_gm4ig"]
+[ext_resource type="Texture2D" uid="uid://cqlgvp6io82bi" path="res://Animations/ButtonBackground/TapIdleButtonTexture.aseprite" id="5_hrb6r"]
+[ext_resource type="Texture2D" uid="uid://c57jrciyh6gmp" path="res://Animations/WaterFlowingAnimation/StartWaterAnimation.png" id="5_yg38v"]
+[ext_resource type="Texture2D" uid="uid://17nqpnjixtwx" path="res://Animations/InventoryOpenAnimation/OpenInventoryPanelAnimation.png" id="6_hntrx"]
+[ext_resource type="Texture2D" uid="uid://cs2y3r1tlc8qq" path="res://Animations/WaterBottleFillingAnimation/Water_bottle_animation.png" id="8_eum7t"]
+[ext_resource type="Texture2D" uid="uid://deyg03j3oj03g" path="res://Animations/BackGround/InventoryPanelBackground.png" id="8_jcnos"]
+
+[sub_resource type="Animation" id="Animation_4jn5a"]
+resource_name = "OpenAchivementPanel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hs4vr"]
+_data = {
+"OpenAchivementPanel": SubResource("Animation_4jn5a")
+}
+
+[sub_resource type="Animation" id="Animation_lj238"]
+resource_name = "FlowingWater"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_am8bw"]
+_data = {
+"FlowingWater": SubResource("Animation_lj238")
+}
+
+[sub_resource type="Animation" id="Animation_jtpw5"]
+resource_name = "StartWaterAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 6, 8, 10, 12, 14, 16]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chlei"]
+_data = {
+"StartWaterAnimation": SubResource("Animation_jtpw5")
+}
+
+[sub_resource type="Animation" id="Animation_xj4uk"]
+resource_name = "FillingBottle"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5wy"]
+_data = {
+"FillingBottle": SubResource("Animation_xj4uk")
+}
 
 [sub_resource type="Animation" id="Animation_7qi16"]
 resource_name = "UnlockIdleAnimation"
@@ -44,10 +134,9 @@ _data = {
 "asdas": SubResource("Animation_k6koo")
 }
 
-[sub_resource type="Animation" id="Animation_lj238"]
-resource_name = "FlowingWater"
-length = 0.9
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_u64kj"]
+resource_name = "InventoryOpen"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,50 +144,114 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(993, 142)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_am8bw"]
-_data = {
-"FlowingWater": SubResource("Animation_lj238")
-}
-
-[sub_resource type="Animation" id="Animation_xj4uk"]
-resource_name = "FillingBottle"
-length = 1.3
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_trlt8"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(993, 142)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sp5wy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lgncr"]
 _data = {
-"FillingBottle": SubResource("Animation_xj4uk")
+"InventoryOpen": SubResource("Animation_u64kj"),
+"RESET": SubResource("Animation_trlt8")
 }
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltl52"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfq0b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lib8d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cw1tf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vb31u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_di114"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uirac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lfy0p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_krxfd"]
+
+[sub_resource type="FontVariation" id="FontVariation_5fm8p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmmfc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb6wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8v1t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6ufi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8es7l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ebxh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwfxy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isny5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eauns"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7iox3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0og50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n31y"]
+
+[sub_resource type="FontFile" id="FontFile_8flsw"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jdwqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8q8xn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k155s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8lq2i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c8hj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ieim5"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = 3.0
-offset_right = 4.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e43h2")
@@ -114,23 +267,30 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_b457c")
 
-[node name="UnlockIdleSprite" type="Sprite2D" parent="."]
+[node name="MoneyBackGround" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(229, 206)
-scale = Vector2(7.40476, 6.7931)
-texture = ExtResource("3_wb540")
-hframes = 4
-vframes = 4
+position = Vector2(87, 99)
+scale = Vector2(1.80233, 2.26875)
+texture = ExtResource("3_gm4ig")
 
-[node name="UnlockIdleAnimation" type="AnimationPlayer" parent="UnlockIdleSprite"]
+[node name="ToiletPaperSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(931, 315)
+scale = Vector2(1.87931, 2.21667)
+texture = ExtResource("3_bht3i")
+centered = false
+vframes = 5
+
+[node name="ToiletPaperAnimation" type="AnimationPlayer" parent="ToiletPaperSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_iyycl")
+"": SubResource("AnimationLibrary_hs4vr")
 }
+movie_quit_on_finish = true
 
 [node name="FlowingWaterSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(285, 310)
-scale = Vector2(0.861245, 1.51867)
+position = Vector2(286.691, 309.975)
+scale = Vector2(1.01531, 1.51967)
 texture = ExtResource("3_6u08w")
 hframes = 3
 vframes = 3
@@ -140,11 +300,23 @@ libraries = {
 "": SubResource("AnimationLibrary_am8bw")
 }
 
+[node name="StartWaterSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(287, 308.5)
+scale = Vector2(1, 1.5)
+texture = ExtResource("5_yg38v")
+vframes = 18
+
+[node name="StartWaterAanimation" type="AnimationPlayer" parent="StartWaterSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_chlei")
+}
+
 [node name="FillBottleSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(284, 329)
+position = Vector2(287, 329)
 scale = Vector2(7.08333, 6.63333)
-texture = ExtResource("4_qrhm5")
+texture = ExtResource("8_eum7t")
 hframes = 4
 vframes = 4
 
@@ -153,12 +325,57 @@ libraries = {
 "": SubResource("AnimationLibrary_sp5wy")
 }
 
+[node name="UnlockIdleSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(229, 206)
+scale = Vector2(7.40476, 6.7931)
+texture = ExtResource("3_g08i1")
+hframes = 4
+vframes = 4
+
+[node name="UnlockIdleAnimation" type="AnimationPlayer" parent="UnlockIdleSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_iyycl")
+}
+
+[node name="InventoryOpenSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(993, 142)
+scale = Vector2(7.2495, 6.73635)
+texture = ExtResource("6_hntrx")
+offset = Vector2(0, -0.02)
+vframes = 5
+
+[node name="InventoryOpenAnimation" type="AnimationPlayer" parent="InventoryOpenSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_lgncr")
+}
+
 [node name="SelectBottleType" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 674.0
-offset_top = 343.0
-offset_right = 796.0
-offset_bottom = 384.0
+offset_left = 50.0
+offset_top = 68.0
+offset_right = 148.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ltl52")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mfq0b")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lib8d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cw1tf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vb31u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_di114")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_uirac")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_lfy0p")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_krxfd")
+flat = true
+alignment = 1
+expand_icon = true
 item_count = 1
 selected = 0
 popup/item_0/text = "330"
@@ -166,41 +383,54 @@ popup/item_0/id = 0
 
 [node name="SelectUppgradeOptions" type="OptionButton" parent="."]
 layout_mode = 0
-offset_left = 812.0
-offset_top = 342.0
-offset_right = 976.0
-offset_bottom = 384.0
+offset_left = 47.0
+offset_top = 121.0
+offset_right = 153.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+theme_override_colors/font_focus_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+theme_override_colors/font_disabled_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+theme_override_colors/font_outline_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
+theme_override_fonts/font = SubResource("FontVariation_5fm8p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vmmfc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kb6wi")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_b8v1t")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_b6ufi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8es7l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1ebxh")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_hwfxy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_isny5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_eauns")
+flat = true
+alignment = 1
+expand_icon = true
 item_count = 6
 selected = 0
-popup/item_0/text = "Level Up"
+popup/item_0/text = "Lvl x1"
 popup/item_0/id = 0
-popup/item_1/text = "Level Up x10"
+popup/item_1/text = "Lvl x10"
 popup/item_1/id = 1
-popup/item_2/text = "Level Up x25"
+popup/item_2/text = "Lvl x25"
 popup/item_2/id = 2
-popup/item_3/text = "Level Up x50"
+popup/item_3/text = "Lvl x50"
 popup/item_3/id = 3
-popup/item_4/text = "Level Up x100"
+popup/item_4/text = "Lvl x100"
 popup/item_4/id = 4
-popup/item_5/text = "Level Up x MAX"
+popup/item_5/text = "Lvl x MAX"
 popup/item_5/id = 5
-
-[node name="Sell" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1013.0
-offset_top = 127.0
-offset_right = 1073.0
-offset_bottom = 158.0
-text = "Sell
-"
 
 [node name="TapWatter" type="Button" parent="."]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 108.0
-offset_right = 664.0
-offset_bottom = 139.0
+offset_left = 14.0
+offset_top = 163.0
+offset_right = 559.0
+offset_bottom = 428.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7iox3")
 text = "Water"
+flat = true
 
 [node name="TapWaterIdle" type="Button" parent="."]
 layout_mode = 0
@@ -208,105 +438,107 @@ offset_left = 596.0
 offset_top = 542.0
 offset_right = 684.0
 offset_bottom = 630.0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0og50")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3n31y")
 icon = ExtResource("5_hrb6r")
 flat = true
 
 [node name="UppgradeTapWater" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 706.0
-offset_top = 105.0
-offset_right = 803.0
-offset_bottom = 136.0
+offset_left = 605.0
+offset_top = 232.0
+offset_right = 667.0
+offset_bottom = 290.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_8flsw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jdwqs")
 text = "Level Up x1"
+flat = true
+text_overrun_behavior = 2
 
 [node name="UppgradeIdleTapWater" type="Button" parent="."]
 layout_mode = 0
 offset_left = 589.0
-offset_top = 221.0
+offset_top = 356.0
 offset_right = 686.0
-offset_bottom = 252.0
+offset_bottom = 387.0
 text = "Level Up x1"
 
 [node name="Money" type="Label" parent="."]
 layout_mode = 0
-offset_left = 584.0
-offset_top = 5.0
-offset_right = 703.0
-offset_bottom = 42.0
+offset_left = 54.0
+offset_top = 23.0
+offset_right = 139.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "(Money)"
-
-[node name="CurrentNumberOfSaleableBottleWithSize330" type="Label" parent="."]
-layout_mode = 0
-offset_left = 812.0
-offset_top = 131.0
-offset_right = 971.0
-offset_bottom = 154.0
-text = "(InventoryBottle330)"
-
-[node name="CurrentNumberOfSaleableBottleWithSize500" type="Label" parent="."]
-layout_mode = 0
-offset_left = 815.0
-offset_top = 179.0
-offset_right = 974.0
-offset_bottom = 202.0
-text = "(InventoryBottle500)"
-
-[node name="CurrentNumberOfSaleableBottleWithSize1000" type="Label" parent="."]
-layout_mode = 0
-offset_left = 812.0
-offset_top = 228.0
-offset_right = 971.0
-offset_bottom = 251.0
-text = "(InventoryBottle1000)"
-
-[node name="CurrentNumberOfSaleableBottleWithSize1500" type="Label" parent="."]
-layout_mode = 0
-offset_left = 810.0
-offset_top = 267.0
-offset_right = 978.0
-offset_bottom = 290.0
-text = "(InventoryBottle1500)"
-
-[node name="CurrentNumberOfSaleableBottleWithSize2000" type="Label" parent="."]
-layout_mode = 0
-offset_left = 812.0
-offset_top = 306.0
-offset_right = 980.0
-offset_bottom = 329.0
-text = "(InventoryBottle2000)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CurrentWaterInBottle" type="Label" parent="."]
 layout_mode = 0
-offset_left = 589.0
-offset_top = 72.0
-offset_right = 674.0
-offset_bottom = 95.0
+offset_left = 456.0
+offset_top = 456.0
+offset_right = 541.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Bottle"
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="UppTapWater_lvl" type="Label" parent="."]
+[node name="LevelTapWater" type="Label" parent="."]
 layout_mode = 0
-offset_left = 709.0
-offset_top = 69.0
-offset_right = 851.0
-offset_bottom = 92.0
-text = "(UppTapWater_lvl)"
+offset_left = 699.0
+offset_top = 237.0
+offset_right = 806.0
+offset_bottom = 262.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LvlText
+"
+horizontal_alignment = 1
 
-[node name="UppTapWaterIdle_lvl" type="Label" parent="."]
+[node name="LevelIdleTapWater" type="Label" parent="."]
 layout_mode = 0
-offset_left = 587.0
-offset_top = 173.0
-offset_right = 758.0
-offset_bottom = 203.0
-text = "(UppTapWaterIdle_lvl)"
+offset_left = 699.0
+offset_top = 345.0
+offset_right = 806.0
+offset_bottom = 370.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LvlText
+"
+horizontal_alignment = 1
+
+[node name="LevelAmountTapWater" type="Label" parent="."]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 264.0
+offset_right = 806.0
+offset_bottom = 293.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LevelAmount
+"
+horizontal_alignment = 1
+
+[node name="LevelAmountIdleTapWater" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 698.0
+offset_top = 373.0
+offset_right = 806.0
+offset_bottom = 402.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "LevelAmount"
+horizontal_alignment = 1
 
 [node name="Store" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1024.0
-offset_right = 1151.0
-offset_bottom = 51.0
+offset_left = 592.0
+offset_top = 14.0
+offset_right = 675.0
+offset_bottom = 60.0
 text = "Store"
 
 [node name="StorePanel" type="Panel" parent="."]
@@ -386,12 +618,18 @@ offset_bottom = 266.0
 text = "BuyBottle2000"
 
 [node name="AchievementsButton" type="Button" parent="."]
-custom_minimum_size = Vector2(120, 0)
 layout_mode = 0
-offset_left = 879.0
-offset_right = 1006.0
-offset_bottom = 51.0
-text = "Achievements"
+offset_left = 933.0
+offset_top = 320.0
+offset_right = 1032.0
+offset_bottom = 383.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8q8xn")
+text = "
+"
+flat = true
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="AchievementsPanel" type="Panel" parent="."]
 visible = false
@@ -438,9 +676,100 @@ offset_right = 572.0
 offset_bottom = 260.0
 text = "First 100 x 330 bottles."
 
+[node name="InventoryButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 834.0
+offset_top = -1.0
+offset_right = 1153.0
+offset_bottom = 227.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8lq2i")
+flat = true
+
+[node name="InventoryPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 569.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="InventoryPanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_jcnos")
+
+[node name="CloseInventoryButton" type="Button" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -70.0
+offset_top = 14.0
+offset_right = -5.0
+offset_bottom = 92.0
+grow_horizontal = 0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8c8hj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ieim5")
+flat = true
+
+[node name="Sell" type="Button" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 53.0
+offset_right = 339.0
+offset_bottom = 84.0
+text = "Sell
+"
+
+[node name="CurrentNumberOfSaleableBottleWithSize330" type="Label" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 55.0
+offset_right = 242.0
+offset_bottom = 78.0
+text = "(InventoryBottle330)"
+
+[node name="CurrentNumberOfSaleableBottleWithSize500" type="Label" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 110.0
+offset_right = 242.0
+offset_bottom = 133.0
+text = "(InventoryBottle500)"
+
+[node name="CurrentNumberOfSaleableBottleWithSize1000" type="Label" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 160.0
+offset_right = 255.0
+offset_bottom = 183.0
+text = "(InventoryBottle1000)"
+
+[node name="CurrentNumberOfSaleableBottleWithSize1500" type="Label" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 302.0
+offset_right = 256.0
+offset_bottom = 325.0
+text = "(InventoryBottle1500)"
+
+[node name="CurrentNumberOfSaleableBottleWithSize2000" type="Label" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 355.0
+offset_right = 266.0
+offset_bottom = 378.0
+text = "(InventoryBottle2000)"
+
 [connection signal="item_selected" from="SelectBottleType" to="." method="_on_select_bottle_type_item_selected"]
 [connection signal="item_selected" from="SelectUppgradeOptions" to="." method="_on_select_uppgrade_options_item_selected"]
-[connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]
 [connection signal="pressed" from="TapWatter" to="." method="_on_tap_watter_pressed"]
 [connection signal="pressed" from="TapWaterIdle" to="." method="_on_tap_water_idle_pressed"]
 [connection signal="pressed" from="UppgradeTapWater" to="." method="_on_upp_tap_water_pressed"]
@@ -452,3 +781,6 @@ text = "First 100 x 330 bottles."
 [connection signal="pressed" from="StorePanel/BuyBottle1500" to="." method="_on_buy_bottle_1500_pressed"]
 [connection signal="pressed" from="StorePanel/BuyBottle2000" to="." method="_on_buy_bottle_2000_pressed"]
 [connection signal="pressed" from="AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="InventoryPanel/CloseInventoryButton" to="." method="_on_close_inventory_button_pressed"]
+[connection signal="pressed" from="InventoryPanel/Sell" to="." method="_on_sell_pressed"]
